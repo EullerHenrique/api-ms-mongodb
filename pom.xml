@@ -8,10 +8,10 @@
         <version>2.6.6</version>
         <relativePath/> <!-- lookup parent from com.euller.project_mongodb_docker.repository -->
     </parent>
-    <groupId>com.euller</groupId>
-    <artifactId>Project_MongoDB_Docker</artifactId>
+    <groupId>com.api</groupId>
+    <artifactId>ms.mongodb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Project_MongoDB_Docker</name>
+    <name>com.api.ms.mongodb</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
