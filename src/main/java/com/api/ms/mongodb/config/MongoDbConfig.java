@@ -26,3 +26,4 @@ public class MongoDbConfig {
         mongoTemplate.getDb().drop();
     }
 }
+
