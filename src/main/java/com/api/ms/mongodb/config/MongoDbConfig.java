@@ -25,5 +25,6 @@ public class MongoDbConfig {
     public void dropDataBase(){
         mongoTemplate.getDb().drop();
     }
+
 }
 

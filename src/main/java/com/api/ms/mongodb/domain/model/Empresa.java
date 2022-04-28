@@ -46,10 +46,10 @@ public class Empresa {
     private String password;
 
     @DocumentReference
-    private List<Token> tokens;
+    private List<Contrato> contratos;
 
     @DocumentReference
-    private List<Contrato> contratos;
+    private List<Token> tokens;
 
     private LocalDateTime dataCriacao;
 

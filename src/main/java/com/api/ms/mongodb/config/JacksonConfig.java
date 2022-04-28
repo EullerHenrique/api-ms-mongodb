@@ -1,3 +1,4 @@
+/*
 package com.api.ms.mongodb.config;
 
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -29,5 +30,5 @@ public class JacksonConfig {
     }
 
 }
-
+*/
 

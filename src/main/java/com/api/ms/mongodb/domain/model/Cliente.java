@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import javax.swing.text.View;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -49,8 +50,9 @@ public class Cliente {
 
     //https://spring.io/blog/2021/11/29/spring-data-mongodb-relation-modelling
     //https://www.mongodb.com/docs/manual/reference/database-references/#manual-references
+
     @DocumentReference
-    public List<Contrato> contrato;
+    public List<Contrato> contratos;
 
     private LocalDateTime dataCriacao;
 

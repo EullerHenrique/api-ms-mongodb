@@ -37,13 +37,25 @@ public class StartRunnerConfig {
     private final EmpresaRepository empresaRepository;
     private final TokenRepository tokenRepository;
 
+    private Empresa empresa;
     private List<Cliente> clientes;
     private List<Token> tokens;
     private List<Contrato> contratos;
 
-    @Bean
+
+    // @Bean
     public ApplicationRunner initializer() {
         return args -> {
+            tokenRepository
+                    .saveAll(
+                            tokens =
+                                    Arrays.asList(
+                                            criarToken(),
+                                            criarToken(),
+                                            criarToken()
+
+                                    )
+                    );
             clienteRepository
                     .saveAll(
                             clientes =
@@ -56,24 +68,14 @@ public class StartRunnerConfig {
 
                                     )
                     );
+            empresaRepository
+                    .save(
+                            empresa = criarEmpresa()
+                    );
             contratoRepository
                     .saveAll(
                             contratos = criarContratos()
                     );
-            tokenRepository
-                    .saveAll(
-                            tokens =
-                                 Arrays.asList(
-                                         criarToken(),
-                                         criarToken(),
-                                         criarToken()
-
-                                 )
-                    );
-            empresaRepository
-                   .save(
-                     criarEmpresa()
-                   );
         };
 
     }
@@ -86,11 +88,12 @@ public class StartRunnerConfig {
                 .build();
     }
 
-    public Contrato criarContrato(Long numero, Cliente c){
+    public Contrato criarContrato(Long numero, Cliente c, Empresa empresa){
         return Contrato.builder()
+                .empresa(empresa)
+                .cliente(c)
                 .numero(numero)
                 .status(StatusEnum.ATIVO)
-                .cliente(c)
                 .dataCriacao(LocalDateTime.now())
                 .build();
     }
@@ -120,7 +123,7 @@ public class StartRunnerConfig {
 
         clientes.stream().forEach(c -> {
             for(int i = 0; i < 3; i++) {
-                contratos.add(criarContrato(new Random().nextLong(), c));
+                contratos.add(criarContrato(new Random().nextLong(), c, empresa));
             }
         });
 

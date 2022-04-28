@@ -1,7 +1,7 @@
 package com.api.ms.mongodb.domain.model;
 
+import com.api.ms.mongodb.config.cascade.CascadeSave;
 import com.api.ms.mongodb.domain.enumeration.StatusEnum;
-import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -49,7 +49,12 @@ public class Contrato {
     //https://spring.io/blog/2021/11/29/spring-data-mongodb-relation-modelling
     //https://www.mongodb.com/docs/manual/reference/database-references/#manual-references
     @DocumentReference
+    @CascadeSave()
     public Cliente cliente;
+
+    @DocumentReference
+    @CascadeSave()
+    public Empresa empresa;
 
     private LocalDateTime dataVencimento;
 
